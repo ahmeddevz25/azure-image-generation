@@ -1,30 +1,36 @@
-# Azure Image Generation Chatbot
+# 🎨 Nova Image AI - Creative Studio
 
-A clean and simple AI Image Generation Chatbot built with **Streamlit** and powered by **Azure OpenAI (`gpt-4o`)**.
+A modern, high-aesthetic AI Image Generation application built with **Python & Streamlit**, powered by **Azure OpenAI (`gpt-4o`)** and high-fidelity rendering engines.
 
-## Features
-- Natural language to image generation.
-- Dynamic prompt enhancement powered by Azure OpenAI (`gpt-4o`).
-- Interactive web UI using Streamlit.
-- Support for multiple artistic styles (Photorealistic, Digital Art, Cinematic, Anime).
-- Full Jupyter Notebook support for running experiments inline.
+![Nova Image AI](preview.png)
 
-## Project Structure
+---
+
+## ✨ Features
+- 🎨 **Dark Navy (`#07152E`) & Accent Yellow (`#FFD43B`) Modern Aesthetic**.
+- 🤖 **3D Robot Mascot Hero Banner** with glowing halo.
+- 💡 **4 Quick Creative Inspiration Cards** (Cyberpunk Cityscape, Celestial Beast, Hypercar, Alien Planet).
+- 🎭 **Art Style Customizer**: Photorealistic, Cinematic, Digital Art, Cyberpunk, Anime, 3D Render.
+- 🧠 **Dynamic Prompt Enhancement**: Refines prompts using Azure OpenAI (`gpt-4o`).
+- 📥 **Direct PNG Download Button**: Download generated artwork with a single click.
+
+---
+
+## 🚀 Quick Start
+
+### 1. Install Dependencies
+```bash
+pip install -r requirements.txt
 ```
-├── app.py              # Main Streamlit web application
-├── chatbot.ipynb       # Jupyter Notebook for inline experimentation
-├── requirements.txt    # Python dependencies
-├── run.bat             # One-click Windows launcher
-└── README.md           # Documentation
-```
 
-## Quick Start
-
-### 1. Run the Web Application
+### 2. Run the Application
 Double-click `run.bat` or run:
 ```bash
-streamlit run app.py
+streamlit run app.py --server.port 8506
 ```
 
-### 2. Run the Notebook
-Open `chatbot.ipynb` in VS Code / Jupyter Lab and run the cells sequentially.
+The application will open at:
+```
+http://localhost:8506
+```
+
