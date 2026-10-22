@@ -564,7 +564,7 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
-    for msg in st.session_state.messages:
+    for idx, msg in enumerate(st.session_state.messages):
         with st.chat_message(msg["role"]):
             if msg.get("type") == "image":
                 st.markdown(f"**Concept:** *\"{msg.get('prompt')}\"*")
@@ -573,8 +573,9 @@ else:
                     st.download_button(
                         label="📥 Download Artwork (PNG)",
                         data=msg["bytes"],
-                        file_name="nova_ai_artwork.png",
-                        mime="image/png"
+                        file_name=f"nova_ai_artwork_{idx + 1}.png",
+                        mime="image/png",
+                        key=f"dl_btn_{idx}"
                     )
                 else:
                     st.image(msg["url"], use_container_width=True)
@@ -628,16 +629,7 @@ if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] 
             except Exception:
                 pass
 
-            st.markdown(f"**Concept:** *\"{current_prompt}\"*")
-            
             if img_bytes:
-                st.image(img_bytes, use_container_width=True)
-                st.download_button(
-                    label="📥 Download Artwork (PNG)",
-                    data=img_bytes,
-                    file_name="nova_ai_artwork.png",
-                    mime="image/png"
-                )
                 st.session_state.messages.append({
                     "role": "assistant",
                     "type": "image",
@@ -646,7 +638,6 @@ if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] 
                     "refined": refined_prompt
                 })
             else:
-                st.image(image_url, use_container_width=True)
                 st.session_state.messages.append({
                     "role": "assistant",
                     "type": "image",
@@ -656,7 +647,4 @@ if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] 
                 })
                 st.session_state.last_gen_time = time.time()
 
-            with st.expander("✨ Refined Visual Prompt"):
-                st.caption(refined_prompt)
-                
     st.rerun()
